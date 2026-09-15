@@ -1,0 +1,858 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>História do Colégio Garcez</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f8fa;
+            color: #173f62;
+        }
+
+        /* ===== CABEÇALHO ===== */
+
+        header {
+            background: linear-gradient(135deg, #064b78, #168fa3);
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            background: white;
+            border-radius: 50%;
+            padding: 5px;
+        }
+
+        .logo h1 {
+            font-size: 25px;
+        }
+
+        .logo p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #8de1e8;
+        }
+
+        /* ===== CAPA ===== */
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(rgba(4, 67, 105, 0.88), rgba(15, 128, 148, 0.85)),
+                url(imagem\ Garcez.jfif);
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h2 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .hero h3 {
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 30px;
+        }
+
+        .botao {
+            display: inline-block;
+            padding: 14px 30px;
+            background-color: white;
+            color: #07527e;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            background-color: #8de1e8;
+            transform: translateY(-3px);
+        }
+
+        /* ===== SEÇÕES ===== */
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .titulo h2 {
+            font-size: 38px;
+            color: #07527e;
+            margin-bottom: 10px;
+        }
+
+        .titulo p {
+            color: #5c7180;
+        }
+
+        /* ===== HISTÓRIA ===== */
+
+        .historia {
+            background-color: white;
+        }
+
+        .historia-container {
+            max-width: 1000px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .historia-container p {
+            margin-bottom: 20px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #07527e, #168fa3);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        /* ===== LINHA DO TEMPO ===== */
+
+        .timeline-section {
+            background-color: #eef6f8;
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            width: 5px;
+            background: linear-gradient(#07527e, #36b7c3);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .evento {
+            width: 50%;
+            padding: 20px 40px;
+            position: relative;
+        }
+
+        .evento:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .evento:nth-child(even) {
+            left: 50%;
+        }
+
+        .evento-conteudo {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .evento-conteudo:hover {
+            transform: translateY(-5px);
+        }
+
+        .evento h3 {
+            color: #07899b;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .evento h4 {
+            color: #07527e;
+            margin-bottom: 10px;
+        }
+
+        /* ===== ENTREVISTAS ===== */
+
+        .videos {
+            background-color: white;
+        }
+
+        .videos-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .video-card {
+            background-color: #f4f8fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+            transition: 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* BOTÃO DO YOUTUBE */
+
+        .video-link {
+            width: 100%;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #07527e, #168fa3);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .video-link:hover {
+            background: linear-gradient(135deg, #06456d, #07899b);
+            transform: scale(1.01);
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-info h3 {
+            color: #07527e;
+            margin-bottom: 8px;
+        }
+
+        .video-info p {
+            color: #637783;
+        }
+
+        /* ===== CURIOSIDADES ===== */
+
+        .curiosidades {
+            background-color: #eef6f8;
+        }
+
+        .cards {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+        }
+
+        .card .numero {
+            font-size: 40px;
+            font-weight: bold;
+            color: #0b94a4;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #07527e;
+        }
+
+        /* ===== RODAPÉ ===== */
+
+        footer {
+            background: #06456d;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer h2 {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            opacity: 0.85;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+
+        @media (max-width: 800px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 38px;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .evento,
+            .evento:nth-child(even),
+            .evento:nth-child(odd) {
+                width: 100%;
+                left: 0;
+                text-align: left;
+                padding-left: 45px;
+                padding-right: 0;
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= CABEÇALHO ================= -->
+
+    <header>
+
+        <div class="logo">
+
+            <!-- Coloque o logo do Garcez na mesma pasta com o nome logo.png -->
+            <img src="logo.png" alt="Logo do Colégio Garcez">
+
+            <div>
+                <h1>Colégio Garcez</h1>
+                <p>A Educação Transforma</p>
+            </div>
+
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#historia">História</a></li>
+                <li><a href="#linha-do-tempo">Evolução</a></li>
+                <li><a href="#entrevistas">Entrevistas</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= CAPA ================= -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <h2>História do Colégio Garcez</h2>
+
+            <h3>
+                Conhecendo a trajetória, as pessoas e os momentos
+                que fizeram parte da história da nossa escola.
+            </h3>
+
+            <a href="#historia" class="botao">
+                Conheça nossa história
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= HISTÓRIA ================= -->
+
+    <section class="historia" id="historia">
+
+        <div class="titulo">
+
+            <h2>📖 Nossa História</h2>
+
+            <p>
+                Uma trajetória construída através da educação
+            </p>
+
+        </div>
+
+        <div class="historia-container">
+
+            <p>
+                O <strong>Colégio Garcez</strong>, localizado em Arapongas,
+                Paraná, possui uma história construída através da educação,
+                do trabalho de seus profissionais e da participação de
+                seus alunos.
+            </p>
+
+            <p>
+                Ao longo dos anos, a escola passou por diversas mudanças
+                e evoluções. Novos espaços foram criados, novas tecnologias
+                chegaram e diferentes gerações de estudantes passaram
+                pelos corredores da instituição.
+            </p>
+
+            <p>
+                Porém, mesmo com todas essas mudanças, a escola continua
+                tendo como objetivo principal oferecer educação e contribuir
+                para a formação de seus alunos.
+            </p>
+
+            <div class="destaque">
+
+                <h2>🎓 "A Educação Transforma"</h2>
+
+                <p>
+                    Essa frase representa a importância da educação na
+                    transformação das pessoas e da sociedade.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= LINHA DO TEMPO ================= -->
+
+    <section class="timeline-section" id="linha-do-tempo">
+
+        <div class="titulo">
+
+            <h2>🕐 Linha do Colégio</h2>
+
+            <p>
+                7 momentos importantes da história da escola
+            </p>
+
+        </div>
+
+        <div class="timeline">
+
+
+            <!-- 1 -->
+
+            <div class="evento">
+
+                <div class="evento-conteudo">
+
+                    <h3>1967</h3>
+
+                    <h4></h4>
+
+                    <p>
+                        A instituição começou suas atividades em 1967, quando o Ginásio Comercial Estadual funcionava anexado ao Colégio Comercial de Arapongas. Isso foi oficializado pelo Decreto nº 7.602, de 16 de novembro de 1967.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 2 -->
+
+            <div class="evento">
+
+                <div class="evento-conteudo">
+
+                    <h3>1969</h3>
+
+                    <h4></h4>
+
+                    <p>
+                        Em 1969, pelo Decreto nº 16.684, de 3 de outubro, a instituição passou a se chamar Ginásio Estadual Antônio Garcez Novaes, nome que homenageia Antônio Garcez Novaes.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 3 -->
+
+            <div class="evento">
+
+                <div class="evento-conteudo">
+
+                    <h3>1976-1988</h3>
+
+                    <h4></h4>
+
+                    <p>
+                        Ao longo dos anos, o colégio foi ampliando sua atuação. Em 1976, passou a ser denominado Escola Antônio Garcez Novaes – Ensino de 1º Grau. Em 1988, tornou-se Colégio Estadual Antônio Garcez Novaes – Ensino de 1º e 2º Graus, oferecendo uma formação escolar mais ampla.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 4 -->
+
+            <div class="evento">
+
+                <div class="evento-conteudo">
+
+                    <h3>1990-1998</h3>
+
+                    <h4></h4>
+
+                    <p>
+                        Na década de 1990, novas mudanças ocorreram. Em 1991, foi reconhecido o ensino de 2º grau com o curso de Auxiliar/Técnico em Contabilidade. Posteriormente, a escola passou a oferecer o Ensino Médio, e em 1998 adotou a denominação Colégio Estadual Antônio Garcez Novaes – Ensino Fundamental e Médio.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 5 -->
+
+            <div class="evento">
+
+                <div class="evento-conteudo">
+
+                    <h3>2005</h3>
+
+                    <h4></h4>
+
+                    <p>
+                        A instituição também passou a oferecer educação profissional. Em 2005, foi solicitado o curso Técnico em Enfermagem, com previsão de início em 2006. Mais tarde, o colégio continuou oferecendo cursos técnicos, incluindo formações na área profissional.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 6 -->
+
+            <div class="evento">
+
+                <div class="evento-conteudo">
+
+                    <h3>2013</h3>
+
+                    <h4></h4>
+
+                    <p>
+                        Um momento importante aconteceu em 2013, quando a quadra poliesportiva do colégio foi reformada. A obra incluiu a troca da cobertura e a recuperação do piso de madeira, com investimento de R$ 180 mil.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 7 -->
+
+            <div class="evento">
+
+                <div class="evento-conteudo">
+
+                    <h3>2017</h3>
+
+                    <h4></h4>
+
+                    <p>
+                        Em 2017, o Colégio Antônio Garcez Novaes comemorou seu Jubileu de Ouro, marcando 50 anos de história desde sua fundação em 1967. A comemoração reuniu professores, funcionários, autoridades, alunos e pessoas que fizeram parte da trajetória da instituição.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ENTREVISTAS ================= -->
+
+    <section class="videos" id="entrevistas">
+
+        <div class="titulo">
+
+            <h2>🎥 Entrevistas</h2>
+
+            <p>
+                Pessoas que fazem parte da história do Colégio Garcez
+            </p>
+
+        </div>
+
+
+        <div class="videos-grid">
+
+
+            <!-- DIRETOR -->
+
+            <div class="video-card">
+
+                <a
+                    class="video-link"
+                    href="https://youtu.be/NvygzYZegQI?is=qmwYNsOUrPpU3Tgp"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    ▶ Assistir entrevista do Renato no YouTube
+                </a>
+
+                <div class="video-info">
+
+                    <h3>👨‍💼 Diretor Renato</h3>
+
+                    <p>
+                        Entrevista com o diretor Renato contando
+                        um pouco sobre a história e a realidade
+                        do Colégio Garcez.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFESSORA -->
+
+            <div class="video-card">
+
+                <a
+                    class="video-link"
+                    href="https://youtu.be/XHQm272AEAQ?is=79y3vnlT3ogQKiCp"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    ▶ Assistir entrevista da Rosana no YouTube
+                </a>
+
+                <div class="video-info">
+
+                    <h3>👩‍🏫 Professora Rosana</h3>
+
+                    <p>
+                        Entrevista sobre suas experiências,
+                        lembranças e participação na história
+                        da escola.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- BIBLIOTECA -->
+
+            <div class="video-card">
+
+                <a
+                    class="video-link"
+                    href="https://youtu.be/3UVdoQ22aF8?is=f2rBsXdCVvpwoe8A"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    ▶ Assistir entrevista da Cintia no YouTube
+                </a>
+
+                <div class="video-info">
+
+                    <h3>📚 Cintia — Biblioteca</h3>
+
+                    <p>
+                        Entrevista com a Cintia contando sobre
+                        a biblioteca e sua importância para os alunos.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- TIA NANA -->
+
+            <div class="video-card">
+
+                <a
+                    class="video-link"
+                    href="https://youtube.com/shorts/y6SYkr6qGkw?is=yCYmCrXYF5Z3L9xm"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    ▶ Assistir entrevista da Tia Nana no YouTube
+                </a>
+
+                <div class="video-info">
+
+                    <h3>💙 Tia Nana</h3>
+
+                    <p>
+                        Entrevista com a Tia Nana, conhecida por
+                        cuidar e acompanhar os alunos no pátio.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CURIOSIDADES ================= -->
+
+    <section class="curiosidades">
+
+        <div class="titulo">
+
+            <h2>✨ O Garcez em números</h2>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="numero">01</div>
+
+                <h3>História</h3>
+
+                <p>
+                    Uma trajetória construída através da educação.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="numero">07</div>
+
+                <h3>Momentos</h3>
+
+                <p>
+                    Sete etapas importantes da evolução da escola.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="numero">04</div>
+
+                <h3>Entrevistas</h3>
+
+                <p>
+                    Quatro pessoas contando suas experiências.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RODAPÉ ================= -->
+
+    <footer>
+
+        <h2>Colégio Garcez</h2>
+
+        <p>A Educação Transforma</p>
+
+        <br>
+
+        <p>
+            Criadores
+        </p>
+
+        <p>
+            Guilherme Furlan Matheus Batista Miguel Solza Enzo Masi
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
